@@ -1,0 +1,17 @@
+{# templates/live/profile_form.html.twig #}
+<div>
+	{{ form_start(form, {
+            attr: {
+                'novalidate': 'novalidate',
+                'data-action': 'live#action:prevent',
+                'data-live-action-param': 'saveProfile',
+            }
+        }) }}
+	{{ form_row(form.nom) }}
+	{{ form_row(form.prenom) }}
+	{{ form_row(form.pseudo) }}
+	{{ form_row(form.biographie) }}
+	{{ form_rest(form) }}
+	<button type="submit" class="btn btn-primary">Save Profile</button>
+	{{ form_end(form) }}
+</div>

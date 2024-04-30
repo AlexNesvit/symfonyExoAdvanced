@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page Profil
+{% endblock %}
+
+{% block body %}
+	{% if not profile.id %}
+		{{ component('ProfileFormComponent') }}
+	{% else %}
+		<div class="wrapper d-flex align-items-stretch row gx-0 pe-4">
+			<nav id="sidebar" class="col-3">
+				<div class="p-4">
+					<div class="mb-5">
+						<div class="card" id="profile-display">
+							{{ component('ProfileDisplayComponent') }}
+						</div>
+					</div>
+					<div>
+						<button id="editProfileButton" class="btn btn-primary">Éditer le profil</button>
+					</div>
+				</div>
+			</nav>
+
+
+			<!-- Page Content  -->
+
+
+			<!-- ... le reste de votre code ... -->
+			<div
+				id="dynamicContent" class="p-4 p-md-5 mt-4 border col-9">
+
+			</div>
+		</div>
+
+
+		<script>
+			document.getElementById('editProfileButton').addEventListener('click', function () {
+fetch('{{ path('profile_edit') }}').then(response => response.text()).then(html => {
+document.getElementById('dynamicContent').innerHTML = html;
+}).catch(error => console.error('Error loading the form: ', error));
+});
+		</script>
+
+	{% endif %}
+{% endblock %}

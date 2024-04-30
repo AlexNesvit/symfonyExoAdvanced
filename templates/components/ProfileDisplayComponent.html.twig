@@ -1,0 +1,32 @@
+<turbo-stream action="replace" target="profile-display">
+	<template>
+		<div class="card" id="profile-display">
+    <div class="card-header text-center p-5">
+        <a href="{{ path('app_profile') }}" class="img logo rounded-circle mb-5">
+            <img class="img-fluid" src="{{ asset('images/avatars/' ~ profile.avatarName) }}" alt="Avatar de {{ profile.pseudo }}" style=" border: 2px solid #000; border-radius: 50%;"/>
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <p class="card-text"><strong>Blaze:</strong> {{ profile.pseudo }}</p>
+        </div>
+        <div class="mb-3">
+            <p class="card-text"><strong>Prénom:</strong> {{ profile.prenom }}</p>
+        </div>
+        <div class="mb-3">
+            <p class="card-text"><strong>Nom:</strong> {{ profile.nom }}</p>
+        </div>
+        <div class="mb-3">
+            <p class="card-text"><strong>Biographie:</strong> {{ profile.biographie }}</p>
+        </div>
+        <div class="mb-3">
+            <p class="card-text"><strong>Date d'inscription:</strong> {{ profile.createdAt|date('d-m-Y') }}</p>
+        </div>
+        <div class="mb-3">
+            <p class="card-text"><strong>Magical Level:</strong> {{ profile.magicalLevel }}</p>
+        </div>
+    </div>
+</div>
+
+	</template>
+</turbo-stream>
